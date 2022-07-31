@@ -13,11 +13,20 @@ import React from 'react'
 const fetchAllBooks = async (id) => {
     // TODO: Fetch all the books
     // The endpoint for books is: '/api/books'
+    const response = await fetch('/api/books')
+    const data = await response.json();
+    return data.books;
 }
 
 const createBook = async (newBookData) => {
     // TODO: Create a book with the specified data
     // The endpoint for books is: '/api/books'
+   await fetch('/api/books', {
+    method: 'POST', 
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newBookData)
+})
+
 }
 
 /**** DON'T CHANGE ANYTHING BELOW ****/

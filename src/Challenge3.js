@@ -18,10 +18,14 @@ import React from 'react'
 const fetchAllMovies = async () => {
     // TODO: Fetch all the movies
     // (You can copy this from Challenge 2)
+    const response = await fetch('/api/movies')
+    const data = await response.json();
+    return data.movies;
 }
 
 const deleteMovie = async (id) => {
     // TODO: Delete the movie with the passed in id
+   await fetch('/api/movies/' + id, { method: 'DELETE' })
 
     // Note: You don't need to parse any data from
     // the response or return anything

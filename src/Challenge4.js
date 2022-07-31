@@ -14,6 +14,9 @@ import React from 'react'
 const fetchMovieById = async (id) => {
     // TODO: Fetch the movie with the specified id
     // The endpoint for movies is: '/api/movies'
+    const response = await fetch('/api/movies/'+ id)
+    const data = await response.json();
+    return data.movie;
 }
 
 /**** DON'T CHANGE ANYTHING BELOW ****/

@@ -12,6 +12,9 @@ import React from 'react'
  */
 
 const fetchBookById = async (id) => {
+    const response = await fetch('/api/books/'+ id)
+    const data = await response.json();
+    return data.book;
     // TODO: fetch the book with the passed in id
     // The endpoint for books is: '/api/books'
 

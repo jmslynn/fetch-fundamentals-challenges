@@ -15,6 +15,10 @@ import React from 'react'
  */
 
 const fetchAllMovies = async () => {
+    const response = await fetch('/api/movies')
+    const data = await response.json();
+    return data.movies;
+
     // TODO: fetch all the movies
     // The endpoint for movies is: '/api/movies'
 

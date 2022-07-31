@@ -20,11 +20,20 @@ import React from 'react'
 const fetchMovieById = async (id) => {
     // TODO: Fetch the movie with the specified id
     // (You can copy this from Challenge 4)
+    const response = await fetch('/api/movies/'+ id)
+    const data = await response.json();
+    return data.movie;
 }
 
 const updateMovieById = async (id, updatedData) => {
     // TODO: Update the movie with the specified id with the specified updated data
     // The endpoint for movies is: '/api/movies'
+    await fetch('/api/movies/' + id, {
+        method: 'PUT', 
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedData)
+    })
+    
 }
 
 /**** DON'T CHANGE ANYTHING BELOW ****/
